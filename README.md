@@ -1,4 +1,4 @@
 theWind
 =======
 
-Thís my first blog, ducan
+This my first blog, ducan
