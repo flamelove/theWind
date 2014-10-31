@@ -35,6 +35,21 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  config.assets.initialize_on_precompile = false
+
+  config.action_mailer.delivery_method = :smtp
+  
+  config.action_mailer.smtp_settings = {
+  :user_name => '25693fe3a29938133',
+  :password => 'e8c9567c1b044f',
+  :address => 'mailtrap.io',
+  :domain => 'mailtrap.io',
+  :port => '2525',
+  :authentication => :cram_md5
+  }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
   Paperclip.options[:command_path] = "/usr/local/bin/"
   
 end
