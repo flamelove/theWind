@@ -122,7 +122,7 @@ RSpec.describe PostsController, :type => :controller do
       it "redirects to the post" do
         post = Post.create! valid_attributes
         put :update, {:id => post.to_param, :post => valid_attributes}, valid_session
-        expect(response).to redirect_to(post)
+        expect(responsee).to redirect_to(post)
       end
     end
 

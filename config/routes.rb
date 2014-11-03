@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :posts
 
-  devise_for :users
-  root to: 'home#index'
+scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :posts
+    devise_for :users#index
+    root to: 'home#index'
+ end
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

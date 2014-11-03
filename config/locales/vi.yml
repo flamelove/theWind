@@ -19,16 +19,5 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  Sign_in: "Sign in"
-  Sign_up: "Sign up"
-  Sign_out: "Sign out"
-  My_post: "My Post"
-  Show: "Show"
-  Edit: "Edit"
-  Destroy: "Destroy"
-  post:
-    title: "Title"
-    content: "Content"
-    created_at: "Create Time"
-    new_post: "New Post"
+vi:
+  Sign_in: "Đăng nhập"

@@ -1,23 +1,38 @@
-<h1>Listing posts</h1>
 
-<table>
+<div class="row">
+  <div class="col-md-5">
+    <h1>Listing posts</h1>
+  </div>
+  <div class="col-md-offset-5 col-md-2">
+    <div class="btn btn-primary new_button">
+      <%= link_to t('post.new_post'), new_post_path %>
+   </div>
+  </div>
+</div>
+<table class="table table-striped table-condensed table-hover ">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th><%= t('post.title')%></th>
+      <th><%= t('post.content')%></th>
+      <th><%= t('post.created_at')%></th>
+      <th><%= t('Show')%></th>
+      <th><%= t('delete')%></th>
+      <th><%= t('Destroy')%></th>
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=post.title %></td>
+        <td><%=post.content %></td>
+        <td><%=post.created_at %></td>
+        <td><%= link_to t('Show'), post %></td>
+        <td><%= link_to t('Edit'), edit_post_path(post) %></td>
+        <td><%= link_to t('Destroy'), post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= paginate @posts %>
 <br>
-
-<%= link_to 'New Post', new_post_path %>
