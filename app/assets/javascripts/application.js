@@ -19,4 +19,4 @@
 //
 // This is a must
 //= require i18n/translations
-//= require twitter/bootstrap
+// require twitter/bootstrap
