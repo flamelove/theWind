@@ -16,6 +16,7 @@ source 'https://rubygems.org'
 	gem 'friendly_id', '~> 5.0.0'
 	gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
     gem 'rails_12factor', group: :production
+    gem 'pg'
     gem 'unicorn'
 group :development do
 	gem 'better_errors'

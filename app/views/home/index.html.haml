@@ -5,7 +5,7 @@
         =link_to f.title, controller: "home", action: "show", id: f.id
       .postmeta
         .authordetail
-          =t('author: ')+current_user.email
+          =t('author: ')+f.user.email
         .create_post
           =t('create_at: ')+f.created_at
         .clearfix

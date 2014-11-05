@@ -35884,3 +35884,2127 @@ ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
   Rendered /home/ducan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
   Rendered /home/ducan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (13.8ms)
   Rendered /home/ducan/.rvm/gems/ruby-2.1.2/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (41.2ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:17:55 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (7.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (28.6ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (158.3ms)
+Completed 200 OK in 468ms (Views: 424.8ms | ActiveRecord: 36.8ms)
+
+
+Started DELETE "/en/users/sign_out" for 127.0.0.1 at 2014-11-05 10:17:56 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"o0hdiByiCA5TjEhTGkZMCe7JP2xVk45UB85VZvQdXQw=", "locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (142.8ms)[0m  [1mUPDATE `users` SET `remember_created_at` = NULL, `updated_at` = '2014-11-05 03:17:56' WHERE `users`.`id` = 1[0m
+  [1m[35m (126.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/en
+Completed 302 Found in 298ms (ActiveRecord: 270.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:17:57 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  Rendered home/index.html.haml within layouts/application (31.7ms)
+Completed 500 Internal Server Error in 35ms
+
+NoMethodError - undefined method `email' for nil:NilClass:
+   () home/ducan/Code/ruby/theWind/app/views/home/index.html.haml:8:in `block in _app_views_home_index_html_haml___2764269172747643165_65459720'
+  activerecord (4.1.6) lib/active_record/relation/delegation.rb:132:in `method_missing'
+  activerecord (4.1.6) lib/active_record/relation/delegation.rb:99:in `method_missing'
+   () home/ducan/Code/ruby/theWind/app/views/home/index.html.haml:2:in `_app_views_home_index_html_haml___2764269172747643165_65459720'
+  actionview (4.1.6) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.6) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.6) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  i18n-js (2.1.2) lib/i18n-js/middleware.rb:11:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/2b370e1f5488e1b5/variables" for 127.0.0.1 at 2014-11-05 10:17:57 +0700
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:18:14 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  Rendered home/index.html.haml within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 9ms
+
+NoMethodError - undefined method `email' for nil:NilClass:
+   () home/ducan/Code/ruby/theWind/app/views/home/index.html.haml:8:in `block in _app_views_home_index_html_haml___2764269172747643165_65459720'
+  activerecord (4.1.6) lib/active_record/relation/delegation.rb:132:in `method_missing'
+  activerecord (4.1.6) lib/active_record/relation/delegation.rb:99:in `method_missing'
+   () home/ducan/Code/ruby/theWind/app/views/home/index.html.haml:2:in `_app_views_home_index_html_haml___2764269172747643165_65459720'
+  actionview (4.1.6) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.6) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.6) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  i18n-js (2.1.2) lib/i18n-js/middleware.rb:11:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/c34eecf519bfcaef/variables" for 127.0.0.1 at 2014-11-05 10:18:14 +0700
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:19:01 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 49[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 48
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (33.4ms)
+Completed 200 OK in 287ms (Views: 285.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:19:37 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  Rendered home/index.html.haml within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 15ms
+
+NoMethodError - undefined method `users' for #<Post:0x007f3ff17f3338>:
+  activemodel (4.1.6) lib/active_model/attribute_methods.rb:435:in `method_missing'
+  activerecord (4.1.6) lib/active_record/attribute_methods.rb:211:in `method_missing'
+   () home/ducan/Code/ruby/theWind/app/views/home/index.html.haml:8:in `block in _app_views_home_index_html_haml___2764269172747643165_69956305300180'
+  activerecord (4.1.6) lib/active_record/relation/delegation.rb:132:in `method_missing'
+  activerecord (4.1.6) lib/active_record/relation/delegation.rb:99:in `method_missing'
+   () home/ducan/Code/ruby/theWind/app/views/home/index.html.haml:2:in `_app_views_home_index_html_haml___2764269172747643165_69956305300180'
+  actionview (4.1.6) lib/action_view/template.rb:145:in `block in render'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.6) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.6) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:82:in `dispatch'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:50:in `call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:73:in `block in call'
+  actionpack (4.1.6) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.6) lib/action_dispatch/routing/route_set.rb:678:in `call'
+  i18n-js (2.1.2) lib/i18n-js/middleware.rb:11:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/278d5c8951692514/variables" for 127.0.0.1 at 2014-11-05 10:19:37 +0700
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:19:44 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 49[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 48[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (40.5ms)
+Completed 200 OK in 298ms (Views: 296.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/en/users/sign_up" for 127.0.0.1 at 2014-11-05 10:19:51 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (81.1ms)
+Completed 200 OK in 399ms (Views: 397.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users" for 127.0.0.1 at 2014-11-05 10:20:00 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P2ZR6tQQAD7HAz4BmslGmf5YFSqbMHJWvCQYCtS/be8=", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "locale"=>"en"}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (15.4ms)[0m  SELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'test@gmail.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 1045ms (Views: 287.2ms | ActiveRecord: 16.1ms)
+
+
+Started POST "/en/users" for 127.0.0.1 at 2014-11-05 10:20:13 +0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P2ZR6tQQAD7HAz4BmslGmf5YFSqbMHJWvCQYCtS/be8=", "user"=>{"email"=>"test@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up", "locale"=>"en"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users`  WHERE `users`.`email` = BINARY 'test@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (20.3ms)[0m  INSERT INTO `users` (`created_at`, `email`, `encrypted_password`, `updated_at`) VALUES ('2014-11-05 03:20:14', 'test@gmail.com', '$2a$10$v8bno7gXhB1lXmCTjn9XAeS3o3fHE4aQqAGsehKDKx0T9mk3qSpWm', '2014-11-05 03:20:14')
+  [1m[36m (94.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `users` SET `current_sign_in_at` = '2014-11-05 03:20:14', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_at` = '2014-11-05 03:20:14', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2014-11-05 03:20:14' WHERE `users`.`id` = 3[0m
+  [1m[35m (94.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/en
+Completed 302 Found in 310ms (ActiveRecord: 210.3ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:20:14 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (3.0ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 49[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 48[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (69.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 350ms (Views: 343.2ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:20:24 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 3  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 3
+  Rendered posts/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 276ms (Views: 270.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/en/posts/new" for 127.0.0.1 at 2014-11-05 10:20:29 +0700
+Processing by PostsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered posts/_form.html.erb (6.9ms)
+  Rendered posts/new.html.erb within layouts/application (23.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 294ms (Views: 291.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/en/posts" for 127.0.0.1 at 2014-11-05 10:21:35 +0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P2ZR6tQQAD7HAz4BmslGmf5YFSqbMHJWvCQYCtS/be8=", "post"=>{"title"=>"Mike Trần: Gỡ được “bottleneck” mọi khó khăn khác sẽ tự động được giải quyết", "content"=>"“Mọi startup trong cùng một lúc đều phải đối diện với muôn vàn khó khăn, nhưng luôn chỉ có 1 bottleneck (nút thắt cổ chai). Người founder chỉ cần tập trung toàn bộ nguồn lực để gỡ cái nút thắt đó, sau đó mọi khó khăn khác sẽ tự động được giải quyết.” \r\n\r\nĐó là cách mà anh Mike Trần – CEO & Founder áp dụng vào Ticketbox (tên cũ là Keewi). Hãy cùng ITviec gặp gỡ người đứng đầu trang web quản lí sự kiện đầu tiên ở Việt Nam.\r\n\r\n\r\nSau 7 năm ở Toronto, công việc đầu tiên của anh ở Việt Nam là gì?\r\n\r\nAnh làm ở Saigon Trading Group ở vai trò một kỹ sư quản lý dự án, rồi phát hiện mình có đam mê kinh doanh khi tham gia vào khía cạnh tài chính và marketing của dự án.\r\n\r\nTại sao anh lại quyết định nghỉ việc một công ty lớn như vậy?\r\n\r\nAnh vốn là người thích được tự do vùng vẫy, nhưng làm việc ở đó lại bị bó buộc, phụ thuộc vào các “tầng lớp” khác trong công ty. Lúc đó có 1 dự án anh bỏ công sức chuẩn bị và khởi động, nhưng đến lúc thực hiện thì anh phải làm dưới quyền người khác nên riết cũng mất lửa từ từ và mất nhiệt huyết trong công việc.\r\n\r\nSau đó kinh tế cũng đi xuống, các dự án đều chậm lại, có nhiều thời gian trống nên anh tìm hiểu nhiều về khởi nghiệp và khi có cơ hội thì anh chuyển luôn.\r\n\r\nKeewi có phải là startup đầu tiên của anh?\r\n\r\nKhông, trước đó anh có làm 1 dự án mạng xã hội (Citi7), nhưng lúc đó chỉ làm cho vui và để học hỏi là chính thôi (cười), không có nghiên cứu thị trường nên kết quả làm ra sản phẩm chẳng ai xài.\r\n\r\nAnh lấy ý tưởng tên Keewi từ đâu?\r\n\r\nLúc đó anh tham gia Start Up Weekend – cuộc thi tạo dựng ra ý tưởng kinh doanh trong vòng 48 tiếng nên anh lấy đại một cái tên chung chung để sau này có đổi hướng khác vẫn xài được. (cười)\r\n\r\n263318_490132841064769_1369966585_n\r\n\r\nKhó khăn lớn nhất của anh khi làm Keewi là gì và anh đã vượt qua như thế nào?\r\n\r\nLà giữ lửa cho team. Lần đó, cả team anh chỉ ngồi code và code từ tháng 2 đến tháng 10 mà không có kết quả cụ thể gì nên mọi người có dấu hiệu mất lửa. Vậy là anh kéo 1 dự án làm áo về cho team để thay đổi không khí, coi như một giải pháp ngắn hạn để không khí làm việc sôi động hơn.\r\n\r\nNếu vậy thì có tốn thời gian và công sức khi thay đổi liên tục như vậy không?\r\n\r\nĐúng là có tốn nhưng được những cái khác. Nhờ đó mà team anh hiểu được vấn đề là làm Startup không có dễ. Làm code hay làm áo cũng vậy thôi, sẽ có khó khăn nhưng phải cố gắng vượt qua. Việc đổi hướng tạm thời như vậy là một phần bình thường trong kinh doanh.\r\n\r\nCover pic của anh là: Life is never what it’s supposed to be. Câu này có ý nghĩa như thế nào với anh?\r\n\r\nTháng 11/2012, lần đầu tiên anh mang một sản phẩm ra nước ngoài cho 1 khách hàng sử dụng – Đây coi như là 1 thắng lợi tương đối đáng để tự hào. Nhưng sáng hôm sự kiện thì server của nhà cung cấp ở Việt Nam bị hư. Anh gọi điện từ 5h đến 7h sáng mà ở Việt Nam không ai nhấc máy. Sự kiện bắt đầu lúc 9h mà tới tận 10h30 server mới được sửa xong. Trong một tiếng rưỡi đó, anh thấy mình như 1 kẻ thất bại vậy. 578007_10151646308221977_1034003668_n\r\n\r\nCâu nói “Life is never what it’s supposed to be” cũng tình cờ nằm trong slide thuyết trình của một speaker trong sự kiện đó. Anh thấy nó quá đúng với tình cảnh mình nên chụp lại. Việc đầu tiên của anh khi về Việt Nam là chuyển server qua Sing.\r\n\r\nCác bước cơ bản của một founder là gì?\r\n\r\nCó 3 bước: Do – Manage – Lead.\r\n\r\nTại sao lại là ba bước như vậy?\r\n\r\nKhi mới thành lập, startup nào cũng chỉ có 2-3 người và ai cũng phải làm cật lực, làm 1 “Do-er” chứ chưa có chỗ cho “Leader.”  Sau đó sẽ sang giai đoạn ổn định, Founder tiến lên bước thứ 2 đó là quản lí – Manager. Qua bước này rồi, khi có manager phía dưới mình thì mới trở thành Leader thực sự.\r\n"}, "commit"=>"Create Post", "locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.5ms)[0m  SELECT  1 AS one FROM `posts`  WHERE `posts`.`title` = BINARY 'Mike Trần: Gỡ được “bottleneck” mọi khó khăn khác sẽ tự động được giải quyết' LIMIT 1
+  [1m[36mSQL (20.8ms)[0m  [1mINSERT INTO `posts` (`content`, `created_at`, `title`, `updated_at`, `user_id`) VALUES ('“Mọi startup trong cùng một lúc đều phải đối diện với muôn vàn khó khăn, nhưng luôn chỉ có 1 bottleneck (nút thắt cổ chai). Người founder chỉ cần tập trung toàn bộ nguồn lực để gỡ cái nút thắt đó, sau đó mọi khó khăn khác sẽ tự động được giải quyết.” \r\n\r\nĐó là cách mà anh Mike Trần – CEO & Founder áp dụng vào Ticketbox (tên cũ là Keewi). Hãy cùng ITviec gặp gỡ người đứng đầu trang web quản lí sự kiện đầu tiên ở Việt Nam.\r\n\r\n\r\nSau 7 năm ở Toronto, công việc đầu tiên của anh ở Việt Nam là gì?\r\n\r\nAnh làm ở Saigon Trading Group ở vai trò một kỹ sư quản lý dự án, rồi phát hiện mình có đam mê kinh doanh khi tham gia vào khía cạnh tài chính và marketing của dự án.\r\n\r\nTại sao anh lại quyết định nghỉ việc một công ty lớn như vậy?\r\n\r\nAnh vốn là người thích được tự do vùng vẫy, nhưng làm việc ở đó lại bị bó buộc, phụ thuộc vào các “tầng lớp” khác trong công ty. Lúc đó có 1 dự án anh bỏ công sức chuẩn bị và khởi động, nhưng đến lúc thực hiện thì anh phải làm dưới quyền người khác nên riết cũng mất lửa từ từ và mất nhiệt huyết trong công việc.\r\n\r\nSau đó kinh tế cũng đi xuống, các dự án đều chậm lại, có nhiều thời gian trống nên anh tìm hiểu nhiều về khởi nghiệp và khi có cơ hội thì anh chuyển luôn.\r\n\r\nKeewi có phải là startup đầu tiên của anh?\r\n\r\nKhông, trước đó anh có làm 1 dự án mạng xã hội (Citi7), nhưng lúc đó chỉ làm cho vui và để học hỏi là chính thôi (cười), không có nghiên cứu thị trường nên kết quả làm ra sản phẩm chẳng ai xài.\r\n\r\nAnh lấy ý tưởng tên Keewi từ đâu?\r\n\r\nLúc đó anh tham gia Start Up Weekend – cuộc thi tạo dựng ra ý tưởng kinh doanh trong vòng 48 tiếng nên anh lấy đại một cái tên chung chung để sau này có đổi hướng khác vẫn xài được. (cười)\r\n\r\n263318_490132841064769_1369966585_n\r\n\r\nKhó khăn lớn nhất của anh khi làm Keewi là gì và anh đã vượt qua như thế nào?\r\n\r\nLà giữ lửa cho team. Lần đó, cả team anh chỉ ngồi code và code từ tháng 2 đến tháng 10 mà không có kết quả cụ thể gì nên mọi người có dấu hiệu mất lửa. Vậy là anh kéo 1 dự án làm áo về cho team để thay đổi không khí, coi như một giải pháp ngắn hạn để không khí làm việc sôi động hơn.\r\n\r\nNếu vậy thì có tốn thời gian và công sức khi thay đổi liên tục như vậy không?\r\n\r\nĐúng là có tốn nhưng được những cái khác. Nhờ đó mà team anh hiểu được vấn đề là làm Startup không có dễ. Làm code hay làm áo cũng vậy thôi, sẽ có khó khăn nhưng phải cố gắng vượt qua. Việc đổi hướng tạm thời như vậy là một phần bình thường trong kinh doanh.\r\n\r\nCover pic của anh là: Life is never what it’s supposed to be. Câu này có ý nghĩa như thế nào với anh?\r\n\r\nTháng 11/2012, lần đầu tiên anh mang một sản phẩm ra nước ngoài cho 1 khách hàng sử dụng – Đây coi như là 1 thắng lợi tương đối đáng để tự hào. Nhưng sáng hôm sự kiện thì server của nhà cung cấp ở Việt Nam bị hư. Anh gọi điện từ 5h đến 7h sáng mà ở Việt Nam không ai nhấc máy. Sự kiện bắt đầu lúc 9h mà tới tận 10h30 server mới được sửa xong. Trong một tiếng rưỡi đó, anh thấy mình như 1 kẻ thất bại vậy. 578007_10151646308221977_1034003668_n\r\n\r\nCâu nói “Life is never what it’s supposed to be” cũng tình cờ nằm trong slide thuyết trình của một speaker trong sự kiện đó. Anh thấy nó quá đúng với tình cảnh mình nên chụp lại. Việc đầu tiên của anh khi về Việt Nam là chuyển server qua Sing.\r\n\r\nCác bước cơ bản của một founder là gì?\r\n\r\nCó 3 bước: Do – Manage – Lead.\r\n\r\nTại sao lại là ba bước như vậy?\r\n\r\nKhi mới thành lập, startup nào cũng chỉ có 2-3 người và ai cũng phải làm cật lực, làm 1 “Do-er” chứ chưa có chỗ cho “Leader.”  Sau đó sẽ sang giai đoạn ổn định, Founder tiến lên bước thứ 2 đó là quản lí – Manager. Qua bước này rồi, khi có manager phía dưới mình thì mới trở thành Leader thực sự.\r\n', '2014-11-05 03:21:35', 'Mike Trần: Gỡ được “bottleneck” mọi khó khăn khác sẽ tự động được giải quyết', '2014-11-05 03:21:35', 3)[0m
+  [1m[35m (240.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts/53
+Completed 302 Found in 280ms (ActiveRecord: 262.1ms)
+
+
+Started GET "/en/posts/53" for 127.0.0.1 at 2014-11-05 10:21:35 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"53"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 53 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (3.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 306ms (Views: 303.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:21:41 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.8ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 3  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 3[0m
+  Rendered posts/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 296ms (Views: 291.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:21:45 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 49
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (51.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 321ms (Views: 317.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/en/posts/53" for 127.0.0.1 at 2014-11-05 10:21:54 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"53"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 53 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (1.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 281ms (Views: 278.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/en/posts/53" for 127.0.0.1 at 2014-11-05 10:22:07 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"53"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 53 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (0.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 260ms (Views: 255.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/en/posts/53" for 127.0.0.1 at 2014-11-05 10:22:16 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"53"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 53 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (0.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 264ms (Views: 261.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/en/posts/53" for 127.0.0.1 at 2014-11-05 10:22:27 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"53"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 53 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (2.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 283ms (Views: 279.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:23:09 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 49[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (127.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 482ms (Views: 429.1ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:23:17 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 3  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 3
+  Rendered posts/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 267ms (Views: 262.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:23:23 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 49[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (41.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 311ms (Views: 308.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:24:28 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 3  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 3
+  Rendered posts/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 282ms (Views: 279.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/en/posts/new" for 127.0.0.1 at 2014-11-05 10:24:30 +0700
+Processing by PostsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered posts/_form.html.erb (1.8ms)
+  Rendered posts/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 306ms (Views: 304.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/en/posts" for 127.0.0.1 at 2014-11-05 10:24:49 +0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P2ZR6tQQAD7HAz4BmslGmf5YFSqbMHJWvCQYCtS/be8=", "post"=>{"title"=>"Startup tips + other things to make you & your company awesome", "content"=>"Hey Dong,\r\nI guess you’d probably read the other open letter to you from the friends at TechInAsia. I’ve been following your story the date the game went viral and I was kinda surprised to find out you were gonna take down Flappy Bird from the Appstore several weeks later and then I started to dig in a little more and this is what I gotta say to you.\r\nI wanted to praise you for all you did, but nobody would care because I’m not Deputy Prime Minister of Vietnam. So I think it could be best if I could run a little rant to hopefully cheer you up man, haha… It’s gonna be random !\r\n1) Because of your game, the world will remember something more about Vietnam beside the war and it’s just got its’ first McDonald.\r\n2) Because of your game, Apple and Samsung can sell a few more phones, since some people really smashed their devices while playing Flappy Bird.\r\n3) Because of your game, more indie developers now have inspired to create the next Flappy Bird.\r\n4) Because of your game, Vietnamese now are starting to open Twitter more frequently (to check for your latest tweets)\r\n5) Because of your game, we realize some Vietnamese presses majorly just copying stuff from foreign media.\r\n6) Because of your game, Google’s In-app Ad now really seems like a powerful advertising tool and they will make more money.\r\n7) Because of your game, this game becomes famous: https://itunes.apple.com/us/app/ironpants/id801727538?mt=8\r\n8) Because of your game, my status got almost 200 likes: https://www.facebook.com/mike726x/posts/10151925557096977\r\n9) Because of your game, some people who never installed any game on their iPhones broke their own rules.\r\n10) Because of your game, Vietnamese are now starting to use hashtag more frequently, and it’s like this “OMG I just score …. in #Flapflap…\r\n11) Because of your game, Vietnamese people now realize instead of jealousy and envying, they should praise, so they can fit in to the so-called global economy.\r\n12) Because of your game, more developers now will write their own games after work, instead of going out with their girlfriends.\r\n13) Because of your game, http://techcrunch.com/tag/vietnam/ is now many people’s bookmarks.\r\n14) Because of your game, this guy wrote a funny song: http://www.youtube.com/watch?v=hf_MEFR80eY\r\n15) Because of your game, hamster can now play games: http://www.youtube.com/watch?v=qgQUqUniMrk\r\n16) Because of your game, Vietnamese girls and parents now think IT guys are super smart and have high potential to be super rich.\r\n17) Because of your game, Vietnamese now know angry grandpa: http://www.youtube.com/watch?v=oRDh2b1oLas\r\n18) Because of your game, Vietnamese developers now know if they use copyrighted materials they might get their asses sued.\r\n19) Because of your game, Vietnamese young folks can feel more confident because there has been a lot of crappy press releases criticizing young people’s lifestyle and Vietnam University education.\r\n20) Because of your game, Vietnamese had a great thing to kill time during the Tet holiday.\r\n21) Because of your game, Nintendo now has more publicity and this company desperately needs something like this as they have been suffering financially in 2013.\r\n22) Because of your game, tech people forgot that VNG is getting sued for violating music copyrights already.\r\n23) (From Bobby - Hub.IT) Because of your game, Bitcoin went out of the ordinary geeky conversation…\r\n24) Because of your game, Triip has a great photo: https://www.facebook.com/photo.php?fbid=285023901650604&set=a.143605342459128.32124.119186311567698\r\n25) And because of your game, this article exists. Thanks very much for it ! The positive impact it creates are a lot greater than you can imagine. Keep going man !!!\r\nCheers,"}, "commit"=>"Create Post", "locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.7ms)[0m  SELECT  1 AS one FROM `posts`  WHERE `posts`.`title` = BINARY 'Startup tips + other things to make you & your company awesome' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `posts` (`content`, `created_at`, `title`, `updated_at`, `user_id`) VALUES ('Hey Dong,\r\nI guess you’d probably read the other open letter to you from the friends at TechInAsia. I’ve been following your story the date the game went viral and I was kinda surprised to find out you were gonna take down Flappy Bird from the Appstore several weeks later and then I started to dig in a little more and this is what I gotta say to you.\r\nI wanted to praise you for all you did, but nobody would care because I’m not Deputy Prime Minister of Vietnam. So I think it could be best if I could run a little rant to hopefully cheer you up man, haha… It’s gonna be random !\r\n1) Because of your game, the world will remember something more about Vietnam beside the war and it’s just got its’ first McDonald.\r\n2) Because of your game, Apple and Samsung can sell a few more phones, since some people really smashed their devices while playing Flappy Bird.\r\n3) Because of your game, more indie developers now have inspired to create the next Flappy Bird.\r\n4) Because of your game, Vietnamese now are starting to open Twitter more frequently (to check for your latest tweets)\r\n5) Because of your game, we realize some Vietnamese presses majorly just copying stuff from foreign media.\r\n6) Because of your game, Google’s In-app Ad now really seems like a powerful advertising tool and they will make more money.\r\n7) Because of your game, this game becomes famous: https://itunes.apple.com/us/app/ironpants/id801727538?mt=8\r\n8) Because of your game, my status got almost 200 likes: https://www.facebook.com/mike726x/posts/10151925557096977\r\n9) Because of your game, some people who never installed any game on their iPhones broke their own rules.\r\n10) Because of your game, Vietnamese are now starting to use hashtag more frequently, and it’s like this “OMG I just score …. in #Flapflap…\r\n11) Because of your game, Vietnamese people now realize instead of jealousy and envying, they should praise, so they can fit in to the so-called global economy.\r\n12) Because of your game, more developers now will write their own games after work, instead of going out with their girlfriends.\r\n13) Because of your game, http://techcrunch.com/tag/vietnam/ is now many people’s bookmarks.\r\n14) Because of your game, this guy wrote a funny song: http://www.youtube.com/watch?v=hf_MEFR80eY\r\n15) Because of your game, hamster can now play games: http://www.youtube.com/watch?v=qgQUqUniMrk\r\n16) Because of your game, Vietnamese girls and parents now think IT guys are super smart and have high potential to be super rich.\r\n17) Because of your game, Vietnamese now know angry grandpa: http://www.youtube.com/watch?v=oRDh2b1oLas\r\n18) Because of your game, Vietnamese developers now know if they use copyrighted materials they might get their asses sued.\r\n19) Because of your game, Vietnamese young folks can feel more confident because there has been a lot of crappy press releases criticizing young people’s lifestyle and Vietnam University education.\r\n20) Because of your game, Vietnamese had a great thing to kill time during the Tet holiday.\r\n21) Because of your game, Nintendo now has more publicity and this company desperately needs something like this as they have been suffering financially in 2013.\r\n22) Because of your game, tech people forgot that VNG is getting sued for violating music copyrights already.\r\n23) (From Bobby - Hub.IT) Because of your game, Bitcoin went out of the ordinary geeky conversation…\r\n24) Because of your game, Triip has a great photo: https://www.facebook.com/photo.php?fbid=285023901650604&set=a.143605342459128.32124.119186311567698\r\n25) And because of your game, this article exists. Thanks very much for it ! The positive impact it creates are a lot greater than you can imagine. Keep going man !!!\r\nCheers,', '2014-11-05 03:24:49', 'Startup tips + other things to make you & your company awesome', '2014-11-05 03:24:49', 3)[0m
+  [1m[35m (267.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts/54
+Completed 302 Found in 292ms (ActiveRecord: 269.2ms)
+
+
+Started GET "/en/posts/54" for 127.0.0.1 at 2014-11-05 10:24:50 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"54"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 54 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (1.1ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 303ms (Views: 300.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:24:52 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.5ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 3  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 3[0m
+  Rendered posts/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 286ms (Views: 282.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:24:58 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.7ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (52.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 347ms (Views: 341.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/en/home/53" for 127.0.0.1 at 2014-11-05 10:25:26 +0700
+Processing by HomeController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"53"}
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 53 LIMIT 1[0m
+  Rendered home/show.html.haml within layouts/application (9.3ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 260ms (Views: 255.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:25:29 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 50[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (56.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 397ms (Views: 391.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:27:11 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 3  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 3
+  Rendered posts/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 291ms (Views: 287.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/en/posts/new" for 127.0.0.1 at 2014-11-05 10:27:15 +0700
+Processing by PostsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered posts/_form.html.erb (9.3ms)
+  Rendered posts/new.html.erb within layouts/application (10.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 304ms (Views: 301.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/en/posts" for 127.0.0.1 at 2014-11-05 10:27:47 +0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P2ZR6tQQAD7HAz4BmslGmf5YFSqbMHJWvCQYCtS/be8=", "post"=>{"title"=>"Entrepreneurs", "content"=>"Okay, I know some of you have been experiencing the time where you can’t find your boyfriend/girlfriend/wife/husband anywhere else except the office and in particularly, in front of a computer screen. Dating/marrying an entrepreneur can be frustrating sometimes because he/she is always seem busy with too much work and too little time. But trust me, as you understand more about him/her, you will find this career path can produce extraordinary personalities that make great life partner. (I’m writing this not because I’m an entrepreneur, It’s because my spouse is one). And here are some plus points that making dating/marrying entrepreneur seems like the best decision you’ve ever made:\r\n1. Entrepreneurs are money-smart and highly intellectual: Every gift, item he/she buys for you and for himself/herself is an investment, it’s never an overspent stuff you don’t need. You can be assured that there’s something more than just the look, the feel of it, there’s alway business or intellectual value behind it.\r\n2. Entrepreneurs are very flexible, highly adaptable: He/she will survive in any given environment if he/she trully commits. \r\n3. Entrepreneurs are excellent problem solvers: His/her workdays as a business owner are full of problems to solve so the more experience he/she gets, the better he/she becomes at solving problem… Even better, he/she might surprise you with very innovative results sometimes.\r\n4. They want to improve everything around you, including themselves: It’s just in entrepreneurs’ DNA: to improve things with innovative solutions, so you can be sure that your life will get a whole lot better by them. Also, running a business requires more than just talents, he/she needs to have a high need for self-development so the same applies for relationship, he/she will constantly improve to suit you.\r\n5. They are superb at getting things done: You can fully rely on your entrepreneurial partner to get stuff done for you. Once he/she says to do it, he/she will get it done and finish it. His/her words are like the words from the CEO – so he/she doesn’t say something he/she can’t execute.\r\n6. They are great communicators with anyone: You will never have to stress out that this guy/girl doesn’t know how to act or communicate in front of your parents or friends…\r\n7. They can “feel” people pretty quickly: He/she has an ability to find out your “fear, frustration, want and desire” very quickly, so you can never complain: “You don’t know what I want” to an entrepreneurial partner.\r\n8. Entrepreneurs know how to serve and take care of people: All businesses have customers therefore entrepreneurs have to developed that sense of serving people. Also, entrepreneurs always have to take care of staffs. It doesn’t matter good day or bad day, he/she knows how to serve and take good care of you.\r\n9. They are too busy to cheat: Well, do I have to say more? They rarely have time for you, so how can they have times for other romances ? :P\r\nSome bonus points will be:\r\n10. They are disciplined and organized: If not, how can he/she run a business, right ?\r\n11. They make the most out of their time: So that vacation, you’re about to go on with him/her, you can be sure that it’s well-planned because he/she already has a plan to make good use of time there.\r\n………………………………..\r\nAnd most importantly, he/she is choosing to share the journey with you every step along the way ;)\r\n—\r\nMay 2, 2013"}, "commit"=>"Create Post", "locale"=>"en"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPost Exists (0.3ms)[0m  SELECT  1 AS one FROM `posts`  WHERE `posts`.`title` = BINARY 'Entrepreneurs' LIMIT 1
+  [1m[36mSQL (188.0ms)[0m  [1mINSERT INTO `posts` (`content`, `created_at`, `title`, `updated_at`, `user_id`) VALUES ('Okay, I know some of you have been experiencing the time where you can’t find your boyfriend/girlfriend/wife/husband anywhere else except the office and in particularly, in front of a computer screen. Dating/marrying an entrepreneur can be frustrating sometimes because he/she is always seem busy with too much work and too little time. But trust me, as you understand more about him/her, you will find this career path can produce extraordinary personalities that make great life partner. (I’m writing this not because I’m an entrepreneur, It’s because my spouse is one). And here are some plus points that making dating/marrying entrepreneur seems like the best decision you’ve ever made:\r\n1. Entrepreneurs are money-smart and highly intellectual: Every gift, item he/she buys for you and for himself/herself is an investment, it’s never an overspent stuff you don’t need. You can be assured that there’s something more than just the look, the feel of it, there’s alway business or intellectual value behind it.\r\n2. Entrepreneurs are very flexible, highly adaptable: He/she will survive in any given environment if he/she trully commits. \r\n3. Entrepreneurs are excellent problem solvers: His/her workdays as a business owner are full of problems to solve so the more experience he/she gets, the better he/she becomes at solving problem… Even better, he/she might surprise you with very innovative results sometimes.\r\n4. They want to improve everything around you, including themselves: It’s just in entrepreneurs’ DNA: to improve things with innovative solutions, so you can be sure that your life will get a whole lot better by them. Also, running a business requires more than just talents, he/she needs to have a high need for self-development so the same applies for relationship, he/she will constantly improve to suit you.\r\n5. They are superb at getting things done: You can fully rely on your entrepreneurial partner to get stuff done for you. Once he/she says to do it, he/she will get it done and finish it. His/her words are like the words from the CEO – so he/she doesn’t say something he/she can’t execute.\r\n6. They are great communicators with anyone: You will never have to stress out that this guy/girl doesn’t know how to act or communicate in front of your parents or friends…\r\n7. They can “feel” people pretty quickly: He/she has an ability to find out your “fear, frustration, want and desire” very quickly, so you can never complain: “You don’t know what I want” to an entrepreneurial partner.\r\n8. Entrepreneurs know how to serve and take care of people: All businesses have customers therefore entrepreneurs have to developed that sense of serving people. Also, entrepreneurs always have to take care of staffs. It doesn’t matter good day or bad day, he/she knows how to serve and take good care of you.\r\n9. They are too busy to cheat: Well, do I have to say more? They rarely have time for you, so how can they have times for other romances ? :P\r\nSome bonus points will be:\r\n10. They are disciplined and organized: If not, how can he/she run a business, right ?\r\n11. They make the most out of their time: So that vacation, you’re about to go on with him/her, you can be sure that it’s well-planned because he/she already has a plan to make good use of time there.\r\n………………………………..\r\nAnd most importantly, he/she is choosing to share the journey with you every step along the way ;)\r\n—\r\nMay 2, 2013', '2014-11-05 03:27:47', 'Entrepreneurs', '2014-11-05 03:27:47', 3)[0m
+  [1m[35m (175.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts/55
+Completed 302 Found in 373ms (ActiveRecord: 363.7ms)
+
+
+Started GET "/en/posts/55" for 127.0.0.1 at 2014-11-05 10:27:47 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"55"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 55 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (2.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 289ms (Views: 284.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/en/posts" for 127.0.0.1 at 2014-11-05 10:27:50 +0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"P2ZR6tQQAD7HAz4BmslGmf5YFSqbMHJWvCQYCtS/be8=", "post"=>{"title"=>"Entrepreneurs", "content"=>"Okay, I know some of you have been experiencing the time where you can’t find your boyfriend/girlfriend/wife/husband anywhere else except the office and in particularly, in front of a computer screen. Dating/marrying an entrepreneur can be frustrating sometimes because he/she is always seem busy with too much work and too little time. But trust me, as you understand more about him/her, you will find this career path can produce extraordinary personalities that make great life partner. (I’m writing this not because I’m an entrepreneur, It’s because my spouse is one). And here are some plus points that making dating/marrying entrepreneur seems like the best decision you’ve ever made:\r\n1. Entrepreneurs are money-smart and highly intellectual: Every gift, item he/she buys for you and for himself/herself is an investment, it’s never an overspent stuff you don’t need. You can be assured that there’s something more than just the look, the feel of it, there’s alway business or intellectual value behind it.\r\n2. Entrepreneurs are very flexible, highly adaptable: He/she will survive in any given environment if he/she trully commits. \r\n3. Entrepreneurs are excellent problem solvers: His/her workdays as a business owner are full of problems to solve so the more experience he/she gets, the better he/she becomes at solving problem… Even better, he/she might surprise you with very innovative results sometimes.\r\n4. They want to improve everything around you, including themselves: It’s just in entrepreneurs’ DNA: to improve things with innovative solutions, so you can be sure that your life will get a whole lot better by them. Also, running a business requires more than just talents, he/she needs to have a high need for self-development so the same applies for relationship, he/she will constantly improve to suit you.\r\n5. They are superb at getting things done: You can fully rely on your entrepreneurial partner to get stuff done for you. Once he/she says to do it, he/she will get it done and finish it. His/her words are like the words from the CEO – so he/she doesn’t say something he/she can’t execute.\r\n6. They are great communicators with anyone: You will never have to stress out that this guy/girl doesn’t know how to act or communicate in front of your parents or friends…\r\n7. They can “feel” people pretty quickly: He/she has an ability to find out your “fear, frustration, want and desire” very quickly, so you can never complain: “You don’t know what I want” to an entrepreneurial partner.\r\n8. Entrepreneurs know how to serve and take care of people: All businesses have customers therefore entrepreneurs have to developed that sense of serving people. Also, entrepreneurs always have to take care of staffs. It doesn’t matter good day or bad day, he/she knows how to serve and take good care of you.\r\n9. They are too busy to cheat: Well, do I have to say more? They rarely have time for you, so how can they have times for other romances ? :P\r\nSome bonus points will be:\r\n10. They are disciplined and organized: If not, how can he/she run a business, right ?\r\n11. They make the most out of their time: So that vacation, you’re about to go on with him/her, you can be sure that it’s well-planned because he/she already has a plan to make good use of time there.\r\n………………………………..\r\nAnd most importantly, he/she is choosing to share the journey with you every step along the way ;)\r\n—\r\nMay 2, 2013"}, "commit"=>"Create Post", "locale"=>"en"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mPost Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `posts`  WHERE `posts`.`title` = BINARY 'Entrepreneurs' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  Rendered posts/_form.html.erb (2.5ms)
+  Rendered posts/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 315ms (Views: 302.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:27:55 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.8ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 3  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 3[0m
+  Rendered posts/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 278ms (Views: 274.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:27:59 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (55.9ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 332ms (Views: 327.1ms | ActiveRecord: 3.8ms)
+
+
+Started DELETE "/en/users/sign_out" for 127.0.0.1 at 2014-11-05 10:29:26 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"P2ZR6tQQAD7HAz4BmslGmf5YFSqbMHJWvCQYCtS/be8=", "locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:29:26 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (52.2ms)
+Completed 200 OK in 334ms (Views: 330.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:29:29 +0700
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 294ms (Views: 290.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:29:32 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ribaiscih8rRIBrgR78119Hh7wKqAgHFgg57py56VzI=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `users` SET `remember_created_at` = '2014-11-05 03:29:32', `updated_at` = '2014-11-05 03:29:32' WHERE `users`.`id` = 1
+  [1m[36m (189.1ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `users` SET `current_sign_in_at` = '2014-11-05 03:29:32', `last_sign_in_at` = '2014-11-04 03:30:35', `sign_in_count` = 14, `updated_at` = '2014-11-05 03:29:32' WHERE `users`.`id` = 1[0m
+  [1m[35m (97.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/en
+Completed 302 Found in 421ms (ActiveRecord: 288.2ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:29:32 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 52[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 51[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (55.4ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 340ms (Views: 334.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:29:43 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 289ms (Views: 282.5ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/en/posts/48" for 127.0.0.1 at 2014-11-05 10:29:48 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"48"}
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 48 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 48[0m
+  [1m[35m (131.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 140ms (ActiveRecord: 132.5ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:29:49 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.5ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (1.4ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 345ms (Views: 336.3ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/en/posts/49" for 127.0.0.1 at 2014-11-05 10:29:51 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"49"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 49 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `posts` WHERE `posts`.`id` = 49
+  [1m[36m (104.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 117ms (ActiveRecord: 105.5ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:29:51 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (1.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (30.9ms)
+Completed 200 OK in 376ms (Views: 370.7ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/en/posts/47" for 127.0.0.1 at 2014-11-05 10:29:54 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"47"}
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 47 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (21.3ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 47[0m
+  [1m[35m (182.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 216ms (ActiveRecord: 204.7ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:29:55 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.9ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 353ms (Views: 349.7ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/en/posts/44" for 127.0.0.1 at 2014-11-05 10:29:57 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"44"}
+  [1m[35mPost Load (0.4ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 44 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `posts` WHERE `posts`.`id` = 44
+  [1m[36m (94.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 110ms (ActiveRecord: 94.8ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:29:57 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (29.4ms)
+Completed 200 OK in 355ms (Views: 347.6ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/en/posts/43" for 127.0.0.1 at 2014-11-05 10:30:00 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"43"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 43 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 43[0m
+  [1m[35m (137.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 148ms (ActiveRecord: 138.2ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:00 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.5ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (31.8ms)
+Completed 200 OK in 348ms (Views: 344.2ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/en/posts/46" for 127.0.0.1 at 2014-11-05 10:30:02 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"46"}
+  [1m[35mPost Load (0.5ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 46 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  DELETE FROM `posts` WHERE `posts`.`id` = 46
+  [1m[36m (142.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 159ms (ActiveRecord: 143.3ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:03 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (23.4ms)
+Completed 200 OK in 349ms (Views: 343.2ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/en/posts/42" for 127.0.0.1 at 2014-11-05 10:30:05 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"42"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 42 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 42[0m
+  [1m[35m (222.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 236ms (ActiveRecord: 223.5ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:05 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.4ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 357ms (Views: 353.7ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/en/posts/41" for 127.0.0.1 at 2014-11-05 10:30:08 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"41"}
+  [1m[35mPost Load (0.8ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 41 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM `posts` WHERE `posts`.`id` = 41
+  [1m[36m (103.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 116ms (ActiveRecord: 104.5ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:08 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.7ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 364ms (Views: 357.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/en/posts/39" for 127.0.0.1 at 2014-11-05 10:30:11 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"39"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 39 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 39[0m
+  [1m[35m (93.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 116ms (ActiveRecord: 95.4ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:11 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (1.2ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 351ms (Views: 347.1ms | ActiveRecord: 1.8ms)
+
+
+Started DELETE "/en/posts/40" for 127.0.0.1 at 2014-11-05 10:30:14 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"40"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 40 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM `posts` WHERE `posts`.`id` = 40
+  [1m[36m (97.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 108ms (ActiveRecord: 98.9ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:14 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.5ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 348ms (Views: 342.4ms | ActiveRecord: 1.1ms)
+
+
+Started DELETE "/en/posts/50" for 127.0.0.1 at 2014-11-05 10:30:16 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"50"}
+  [1m[36mPost Load (0.9ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 50 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 50[0m
+  [1m[35m (96.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 107ms (ActiveRecord: 97.9ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:16 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.5ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 360ms (Views: 352.0ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/en/posts/37" for 127.0.0.1 at 2014-11-05 10:30:21 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"37"}
+  [1m[35mPost Load (1.5ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 37 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `posts` WHERE `posts`.`id` = 37
+  [1m[36m (110.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 127ms (ActiveRecord: 112.8ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:21 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 338ms (Views: 329.2ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/en/posts/38" for 127.0.0.1 at 2014-11-05 10:30:24 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"38"}
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 38 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 38[0m
+  [1m[35m (126.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 138ms (ActiveRecord: 126.8ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:24 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (1.3ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 343ms (Views: 338.5ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/en/posts/51" for 127.0.0.1 at 2014-11-05 10:30:27 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"51"}
+  [1m[35mPost Load (0.9ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 51 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM `posts` WHERE `posts`.`id` = 51
+  [1m[36m (120.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 128ms (ActiveRecord: 122.0ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:27 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1
+  Rendered posts/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 320ms (Views: 316.5ms | ActiveRecord: 1.3ms)
+
+
+Started DELETE "/en/posts/52" for 127.0.0.1 at 2014-11-05 10:30:29 +0700
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en", "id"=>"52"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 52 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `posts` WHERE `posts`.`id` = 52[0m
+  [1m[35m (156.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/en/posts
+Completed 302 Found in 166ms (ActiveRecord: 157.3ms)
+
+
+Started GET "/en/posts" for 127.0.0.1 at 2014-11-05 10:30:29 +0700
+Processing by PostsController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35mPost Load (0.5ms)[0m  SELECT  `posts`.* FROM `posts`  WHERE `posts`.`user_id` = 1  ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `posts`  WHERE `posts`.`user_id` = 1[0m
+  Rendered posts/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 340ms (Views: 335.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:42:54 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (1.3ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 22
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (52.7ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 354ms (Views: 347.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-05 10:43:04 +0700
+Processing by HomeController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 23[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 22[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (36.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 321ms (Views: 318.1ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/en/users/sign_out" for 127.0.0.1 at 2014-11-05 10:44:14 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Z3rjxibWY5RcOFPIj2K52TiCeiPJtq3LDXkSfh8D4vk=", "locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `remember_created_at` = NULL, `updated_at` = '2014-11-05 03:44:14' WHERE `users`.`id` = 1
+  [1m[36m (100.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 107ms (ActiveRecord: 101.1ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:44:14 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 22
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (51.9ms)
+Completed 200 OK in 349ms (Views: 344.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:44:16 +0700
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 303ms (Views: 301.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:44:26 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5Hjf+p1eEIgRz7VWG2vjsQM3aO9W+UAdJC8iCfA8hwo=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2014-11-05 03:44:27', `last_sign_in_at` = '2014-11-05 03:29:32', `sign_in_count` = 15, `updated_at` = '2014-11-05 03:44:27' WHERE `users`.`id` = 1
+  [1m[36m (93.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/en
+Completed 302 Found in 190ms (ActiveRecord: 95.5ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:44:27 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 22
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `posts`[0m
+  Rendered home/index.html.haml within layouts/application (52.5ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 348ms (Views: 342.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/en/posts/55" for 127.0.0.1 at 2014-11-05 10:44:34 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"locale"=>"en", "id"=>"55"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  `posts`.* FROM `posts`  WHERE `posts`.`id` = 55 LIMIT 1[0m
+  Rendered posts/show.html.haml within layouts/application (1.1ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 200 OK in 277ms (Views: 273.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-05 10:47:18 +0700
+Processing by HomeController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 55[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 54[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 3 LIMIT 1  [["id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 53[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM `comments`  WHERE `comments`.`post_id` = 20[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (36.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 200 OK in 345ms (Views: 341.2ms | ActiveRecord: 2.5ms)
+  [1m[36m (247.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (457.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20141031020603)
+  [1m[35m (1019.5ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `username` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0 NOT NULL, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (342.9ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (354.8ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) 
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141031020603')
+  [1m[36m (106.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePosts (20141031025824)
+  [1m[35m (276.2ms)[0m  CREATE TABLE `posts` (`id` int(11) auto_increment PRIMARY KEY, `user_id` int(11), `title` varchar(255), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141031025824')
+  [1m[36m (117.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20141031030804)
+  [1m[35m (216.8ms)[0m  CREATE TABLE `comments` (`id` int(11) auto_increment PRIMARY KEY, `post_id` int(11), `user_id` int(11), `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141031030804')
+  [1m[36m (97.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started DELETE "/en/users/sign_out" for 127.0.0.1 at 2014-11-05 10:48:21 +0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "locale"=>"en"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`id` = 1  ORDER BY `users`.`id` ASC LIMIT 1
+Redirected to http://localhost:3000/en
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/en" for 127.0.0.1 at 2014-11-05 10:48:21 +0700
+Processing by HomeController#index as HTML
+  Parameters: {"locale"=>"en"}
+  [1m[36mPost Load (0.6ms)[0m  [1mSELECT  `posts`.* FROM `posts`   ORDER BY created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `posts`
+  Rendered home/index.html.haml within layouts/application (7.6ms)
+Completed 200 OK in 313ms (Views: 305.5ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:48:24 +0700
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 358ms (Views: 340.0ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:48:27 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 5ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 378ms (Views: 292.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:49:40 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 2ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 396ms (Views: 312.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:49:58 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 431ms (Views: 349.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:50:58 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 5ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 398ms (Views: 315.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:55:50 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 395ms (Views: 312.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:59:21 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/sessions/new.html.erb within layouts/application (2.0ms)
+Completed 500 Internal Server Error in 89ms
+
+SyntaxError - syntax error, unexpected =>
+...ame, autofocus: true ,class: =>"form-control");@output_buffe...
+...                               ^:
+   () home/ducan/Code/ruby/theWind/app/views/devise/sessions/new.html.erb:9:in `'
+  actionview (4.1.6) lib/action_view/template.rb:297:in `compile'
+  actionview (4.1.6) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:244:in `block in compile!'
+  actionview (4.1.6) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.1.6) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.6) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.6) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:238:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:165:in `to_html'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:158:in `respond'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:151:in `call'
+  actionpack (4.1.6) lib/action_controller/metal/mime_responds.rb:400:in `respond_with'
+  devise (3.4.1) app/controllers/devise/sessions_controller.rb:11:in `new'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  devise (3.4.1) lib/devise/failure_app.rb:53:in `recall'
+  devise (3.4.1) lib/devise/failure_app.rb:37:in `respond'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  devise (3.4.1) lib/devise/failure_app.rb:22:in `call'
+  devise (3.4.1) lib/devise/delegator.rb:5:in `call'
+  warden (1.2.3) lib/warden/manager.rb:130:in `call_failure_app'
+  warden (1.2.3) lib/warden/manager.rb:116:in `process_unauthenticated'
+  warden (1.2.3) lib/warden/manager.rb:47:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/0188112b8830ed86/variables" for 127.0.0.1 at 2014-11-05 10:59:21 +0700
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 10:59:32 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 369ms (Views: 288.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:00:03 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 420ms (Views: 337.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:01:53 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 420ms (Views: 338.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:02:56 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 6ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 446ms (Views: 361.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:03:29 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 89ms
+
+SyntaxError - syntax error, unexpected ':', expecting ')'
+...password, autocomplete: "off" :class =>"form-control");@outp...
+...                               ^:
+   () home/ducan/Code/ruby/theWind/app/views/devise/sessions/new.html.erb:14:in `'
+  actionview (4.1.6) lib/action_view/template.rb:297:in `compile'
+  actionview (4.1.6) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:244:in `block in compile!'
+  actionview (4.1.6) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.1.6) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.6) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.6) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:238:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:165:in `to_html'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:158:in `respond'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:151:in `call'
+  actionpack (4.1.6) lib/action_controller/metal/mime_responds.rb:400:in `respond_with'
+  devise (3.4.1) app/controllers/devise/sessions_controller.rb:11:in `new'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  devise (3.4.1) lib/devise/failure_app.rb:53:in `recall'
+  devise (3.4.1) lib/devise/failure_app.rb:37:in `respond'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  devise (3.4.1) lib/devise/failure_app.rb:22:in `call'
+  devise (3.4.1) lib/devise/delegator.rb:5:in `call'
+  warden (1.2.3) lib/warden/manager.rb:130:in `call_failure_app'
+  warden (1.2.3) lib/warden/manager.rb:116:in `process_unauthenticated'
+  warden (1.2.3) lib/warden/manager.rb:47:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/3282d95d6f4b18a0/variables" for 127.0.0.1 at 2014-11-05 11:03:29 +0700
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:03:44 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 393ms (Views: 309.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:04:08 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 382ms (Views: 300.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:05:40 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 2ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/sessions/new.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 91ms
+
+SyntaxError - syntax error, unexpected tSTRING_BEG, expecting =>
+...=>"form-control",:placeholder="password" );@output_buffer.sa...
+...                               ^:
+   () home/ducan/Code/ruby/theWind/app/views/devise/sessions/new.html.erb:15:in `'
+  actionview (4.1.6) lib/action_view/template.rb:297:in `compile'
+  actionview (4.1.6) lib/action_view/template.rb:245:in `block (2 levels) in compile!'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:244:in `block in compile!'
+  actionview (4.1.6) lib/action_view/template.rb:232:in `compile!'
+  actionview (4.1.6) lib/action_view/template.rb:144:in `block in render'
+  activesupport (4.1.6) lib/active_support/notifications.rb:161:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:339:in `instrument'
+  actionview (4.1.6) lib/action_view/template.rb:143:in `render'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:55:in `block (2 levels) in render_template'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:54:in `block in render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:62:in `render_with_layout'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:53:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.1.6) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.1.6) lib/action_view/rendering.rb:99:in `_render_template'
+  actionpack (4.1.6) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.1.6) lib/action_view/rendering.rb:82:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/action_controller/metal/renderers.rb:32:in `render_to_body'
+  actionpack (4.1.6) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.1.6) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:238:in `default_render'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:165:in `to_html'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:158:in `respond'
+  actionpack (4.1.6) lib/action_controller/metal/responder.rb:151:in `call'
+  actionpack (4.1.6) lib/action_controller/metal/mime_responds.rb:400:in `respond_with'
+  devise (3.4.1) app/controllers/devise/sessions_controller.rb:11:in `new'
+  actionpack (4.1.6) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:113:in `call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:229:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:149:in `block in halting_and_conditional'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.6) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.6) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.6) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.6) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.6) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.6) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.6) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  devise (3.4.1) lib/devise/failure_app.rb:53:in `recall'
+  devise (3.4.1) lib/devise/failure_app.rb:37:in `respond'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.1.6) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.1.6) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.6) lib/action_controller/metal.rb:232:in `block in action'
+  devise (3.4.1) lib/devise/failure_app.rb:22:in `call'
+  devise (3.4.1) lib/devise/delegator.rb:5:in `call'
+  warden (1.2.3) lib/warden/manager.rb:130:in `call_failure_app'
+  warden (1.2.3) lib/warden/manager.rb:116:in `process_unauthenticated'
+  warden (1.2.3) lib/warden/manager.rb:47:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:35:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.6) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  activerecord (4.1.6) lib/active_record/migration.rb:380:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.0.3) lib/quiet_assets.rb:23:in `call_with_quiet_assets'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+   () home/ducan/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/b07850059b6f37bc/variables" for 127.0.0.1 at 2014-11-05 11:05:40 +0700
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:05:50 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 382ms (Views: 301.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:10:18 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 5ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 401ms (Views: 320.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:11:14 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 391ms (Views: 307.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:14:08 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 514ms (Views: 425.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:15:43 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 5ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 391ms (Views: 310.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:16:31 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users`  WHERE `users`.`email` = 'ducan@gmail.com'  ORDER BY `users`.`id` ASC LIMIT 1
+Completed 401 Unauthorized in 4ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"email"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 376ms (Views: 291.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:16:36 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Completed 401 Unauthorized in 3ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Unpermitted parameters: username
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 377ms (Views: 294.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:17:45 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Completed 401 Unauthorized in 1ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Unpermitted parameters: username
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 414ms (Views: 330.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:18:27 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Completed 401 Unauthorized in 1ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Unpermitted parameters: username
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 416ms (Views: 334.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/en/users/sign_in" for 127.0.0.1 at 2014-11-05 11:18:42 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Completed 401 Unauthorized in 1ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zP+BBU9H3HZFDkWwfsL6QV2WhM8o/f+3SCjRhCZxAZU=", "user"=>{"username"=>"ducan@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in", "locale"=>"en"}
+Unpermitted parameters: username
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 411ms (Views: 324.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/users/sign_up" for 127.0.0.1 at 2014-11-05 11:18:55 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 318ms (Views: 317.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/en/users/sign_up" for 127.0.0.1 at 2014-11-05 11:24:09 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"locale"=>"en"}
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 300ms (Views: 298.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
