@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
 scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    resources :posts
+    resources :posts do
+       resources :comments
+    end
     devise_for :users#index
     root to: 'home#index'
+    resources :home, only: :show
  end
   
   

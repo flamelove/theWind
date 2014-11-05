@@ -1,3 +1,69 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.home_content{
+	background-image: url('/assets/home_background1.jpg');
+	height:960px;
+	width:auto;
+	background-size: 100% 50%;
+	background-repeat:no-repeat;
+}
+
+.navbar.navbar-static-top{
+	margin-bottom: 0px;
+	background-color:#76B62C
+}
+.container{
+	// background: #f2f2f2;
+	line-height: 1.6;
+}
+.red{
+	background: #EA1E30;
+}
+// Right CONTENT 
+.main > .container.main-a{
+	background: #fff;
+	padding-left:30px;
+	margin-left: 0px;
+	text-align: justify;
+}
+.main>.main-a> a:link,a:visited {
+    text-decoration: none;
+    color: #EA1E30;
+}
+.post .content {
+    margin-bottom: 1.2em;
+    position: relative;
+}
+.post >.readdetail{
+	font-size: 13px;
+}
+.post >.readdetail > a{
+	color: #fff;
+}
+.post {
+	margin-top: 22px;
+	padding-top: 20px;
+	border-top: 2px solid #e7e7e7;
+}
+.post.first{
+	border-top: 0px;
+}
+.authordetail,.create_post{
+	font-size: 11px;
+}
+.content{
+	padding-top:10px
+}
+.container.main-a >.pagination{
+	width:100%;
+	margin-top:5px;
+	border-top: 2px solid #e7e7e7;
+}
+// Left Content
+.main > .main-b{
+	background: #fff;
+	text-align: justify;
+	height:100%;
+}

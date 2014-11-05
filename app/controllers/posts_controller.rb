@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @posts = current_user.post.page params[:page]
+    @posts = current_user.post.order('created_at DESC').page params[:page]
     respond_with(@posts)
   end
 

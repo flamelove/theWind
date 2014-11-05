@@ -1,0 +1,22 @@
+.container.main-a.col-md-7
+  - @posts.each_with_index do|f,i| 
+    %div{:class => "post #{'first' if i==0}"} 
+      %h2{:class=>'title'}
+        =link_to f.title, controller: "home", action: "show", id: f.id
+      .postmeta
+        .authordetail
+          =t('author: ')+current_user.email
+        .create_post
+          =t('create_at: ')+f.created_at
+        .clearfix
+      .content
+        =f.content.truncate(480, separator: ' ')
+      -if f.content.size>480
+        .readdetail.btn.red 
+          =link_to t('continous reading ...'),f
+      .comment_count
+        =t('comment: ')+f.comments.size
+  =paginate @posts
+.main-b.col-md-3
+  %p something to say
+.clearfix
