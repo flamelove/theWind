@@ -1,0 +1,39 @@
+= form_for(@post,html: {class: "post_form form"} ) do |f|
+  .row
+    - if @post.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@post.errors.count, "error")
+          prohibited this post from being saved:
+        %ul
+          - @post.errors.full_messages.each do |message|
+            %li= message
+  .form-group
+    = f.label :title
+    %br
+      = f.text_field :title, :class => "form-control"
+  .form-group
+    = f.label :content
+    %br
+      = f.text_area :content, :class => "form-control"
+  .actions
+    = f.submit class: "btn btn-primary"
+:javascript
+  $(document).ready(function(){
+    $(".post_form").validate({
+    rules: {
+      // simple rule, converted to {required:true}
+       "post[title]": {
+          required:true,
+          minlength:2,
+            },
+      // compound rule
+       "post[content]" : {
+          required: true,
+          wrapper: "li",
+          errorLabelContainer: "#messageBox",
+             },
+    }
+    });
+  
+  });

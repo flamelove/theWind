@@ -1,11 +1,13 @@
-%p
-  %strong Title:
-  = @post.title
-%p
-  %strong Content:
-  = @post.content
-%p
-  
-= link_to 'Edit', edit_post_path(@post)
-|
-\#{link_to 'Back', posts_path}
+.container.post-admin
+	.row
+		.col-md-8
+			.row
+				%strong Title:
+				= @post.title
+			.row
+				
+				%strong Content:
+				= @post.content
+			= link_to 'Edit', edit_post_path(@post)
+			|
+			\#{link_to 'Back', posts_path}
