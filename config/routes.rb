@@ -4,7 +4,8 @@ scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     resources :posts do
        resources :comments
     end
-    devise_for :users#index
+    devise_for :users
+
     root to: 'home#index'
     resources :home, only: :show
  end

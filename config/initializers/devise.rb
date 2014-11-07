@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '4d3690e2f7aa42d4548fcc1efadf4df2b7c334af4531655c592d01e422f1f13f5ef9a0b03d3feea0f2f5933a515227277ce3deee2a7448bd1c27fdddb6fb47fe'
+  # config.secret_key = '6265d807b125ddf757a821b455f19ed706ec06f90a3fd039b06e2bdc52dbba3b0ea647d23b877987d14c9ab8e452afd4d9a95781ed69e8a8ebe50a805508f50a'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -29,7 +29,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [ :email ]
+  config.authentication_keys = [ :username ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -41,12 +41,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [ :email ]
+  config.case_insensitive_keys = [ :username ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [ :email ]
+  config.strip_whitespace_keys = [ :username ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -97,7 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '65fe3e04014195b76c69ddd72ba2b5c54625fc87f8d61a8d1107853a2c197781e3e0a5be2ff5417515f32d15b19831c3da14d528d4fd698ff0fe6286d7b5be1a'
+  # config.pepper = '89aaaf55efe75e12544fec7d07cc09ab628d53d4d9d5f49c24d940b07d14cafa03f7768032ae613e5e62a0dae1afb9e10ff2371f4d304172035e8a8794eb8042'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -256,4 +256,5 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  # config.scoped_views = true
 end

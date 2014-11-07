@@ -47,15 +47,24 @@
         <%= link_to "TheWind", root_path ,class: "navbar-brand" %>
         <div class="navbar-collapse collapse navbar-responsive-collapse navbar-right ">
           <ul class="nav navbar-nav">
+            
+            <li ><%= link_to_unless_current t("english"), locale: "en" do link_to t("english"),'' end%></li>
+            <li ><%= link_to_unless_current t("vietnam"), locale: "vi"  do link_to t("vietnam"),''end %></li>
+
             <% unless user_signed_in? -%>
                <li><%= link_to t("Sign_in"), new_user_session_path  %></li>
                <li><%= link_to t("Sign_up"), new_user_registration_path  %></li>
             <% end -%>
             <% if user_signed_in? -%>
-               <li><%= link_to t("Sign_out"), destroy_user_session_path ,method: :delete %>
-               </li>
-                <li><%= link_to t("My_post"), posts_path %>
-               </li>
+                <li>
+                  <%= link_to t("Sign_out"), destroy_user_session_path ,method: :delete %>
+                </li>
+                <li>
+                  <%= link_to t("My_post"), posts_path ,disabled: :true %>
+                </li>
+                <li>
+                   <%= link_to t("My_account"), edit_user_registration_path %>
+                </li>
 
             <% end -%>
           </ul>
@@ -64,7 +73,7 @@
     </div>
 
       <div class="container">
-       <div class="row main">
+       <div class="row main main-page" id="content-page">
           <%= bootstrap_flash %>
           <%= yield %>
        </div>
