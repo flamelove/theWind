@@ -16,3 +16,10 @@
 body{
 	background: #f2f2f2;
 }
+.navbar-collapse.collapse.navbar-responsive-collapse.navbar-right >.nav.navbar-nav:not(:has(> a){
+	margin-top: 15px;
+}
+div.navbar-collapse.collapse.navbar-responsive-collapse.navbar-right >ul.nav.navbar-nav{
+	line-height: 50px;
+	background-color: red;
+}

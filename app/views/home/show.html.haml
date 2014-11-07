@@ -1,16 +1,56 @@
-%p
-  %strong Title:
-  = @post.title
-%p
-  %strong Content:
-  = @post.content
-%p
-=form_for([@post,@post.comments.build]) do |f|
-  %p 
-    =f.label :content , 'Comment'
-    =f.text_area :content
-
-  =f.submit
-= link_to 'Edit', edit_post_path(@post)
-|
-\#{link_to 'Back', posts_path}
+.container.form-show
+  .postContent
+    %h1{:class=>"title"}= @post.title
+    .postmedia
+      .author=t("post_by")+": "+@post.user.username
+      .create_at
+        =t("create_at")+": "
+        =@post.created_at
+    .postContent=@post.content
+  
+  -if user_signed_in?
+    %h2 Comment
+    =form_for([@post,@post.comment.build]) do |f|
+      .input-group.col-md-12
+        =f.label :content
+        %br 
+        =f.text_area:content ,:class=>"comment_body form-control "
+        %br
+      .row
+        .col-md-4
+          =f.submit class: "btn btn-primary btn-comment"
+  .comment
+    -@comments.each do |comment|
+      .comment_box.well.well-lg
+        .comment_user=comment.user.username.to_s + ": "
+        .comment_user_body=comment.content
+  %br
+  =paginate @comments
+  
+  %br
+  .row
+    .col-md-12
+      \#{link_to 'Back', root_path}
+:javascript
+    $(document).ready( function() {
+     $(".new_comment").validate({
+       rules: {
+         "comment[content]": {
+          required:true
+          }
+  }
+  });
+   $(".new_comment").submit(function(){
+    var valuesToSubmit = $(this).serialize();
+    $.ajax({
+      type: "POST",
+      url: $(this).attr('action'),
+      data: valuesToSubmit,
+      dataType: "JSON" 
+    }).success(function(json){
+        $('.comment').prepend('<div class="comment_box well well-lg"><div class="comment_user">'+json.user.username+':</div><div class="comment_user_body">'+json['content']+' </div>');
+        $('.comment_body').val('');
+    });
+    return false; // prevents normal behaviour
+    });
+    });

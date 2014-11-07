@@ -18,6 +18,8 @@ source 'https://rubygems.org'
     gem 'rails_12factor', group: :production
     gem 'pg'
     gem 'unicorn'
+    gem 'delayed_job_active_record'
+    # gem 'delayed_job_mongoid'
 group :development do
 	gem 'better_errors'
     gem 'spring'

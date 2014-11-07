@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
-
+  before_action :authenticate_user!
   def index
     @posts = current_user.post.order('created_at DESC').page params[:page]
     respond_with(@posts)
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.friendly.find(params[:id])
     end
     def post_params
       params.require(:post).permit(:title, :content)
