@@ -1,4 +1,5 @@
-<%= form_for(@post,html: {class: "post_form"} ) do |f| %>
+<%= form_for(@post,html: {class: "post_form form"} ) do |f| %>
+  <div class="row">
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,18 +11,18 @@
       </ul>
     </div>
   <% end %>
-
- <p>
+</div>
+ <div class="form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+    <%= f.text_field :title, :class => "form-control"  %>
+  </div>
  
-  <p>
+  <div class="form-group">
     <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </p>
+    <%= f.text_area :content, :class => "form-control" %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
 <script>
