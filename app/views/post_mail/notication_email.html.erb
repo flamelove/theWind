@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hello  <%= @comment.post.user.username %> welcome to the wind </h1>
+    <p>
+      Your post have  comment!
+      <%= @comment.user.username %>  say: <%=@comment.content%>  <br>
+    </p>
+    <p>
+    You want to see this comment, please visted side: <a href="<%= @url %>">click here</a>
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
