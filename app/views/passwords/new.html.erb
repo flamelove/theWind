@@ -1,0 +1,33 @@
+<%= form_for @password_form, url: passwords_path, method: :GET do |f| %>
+  <% if @password_form.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @password_form.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<h3>Profile Details</h3>
+<div class="field">
+  <%= f.label :original_password %><br />
+  <%= f.text_field :original_password %>
+</div>
+<div class="field">
+  <%= f.label :new_password %><br />
+  <%= f.text_field :new_password %>
+</div>
+<div class="field">
+  <%= f.label :new_password_confirmation %><br />
+  <%= f.text_field :new_password_confirmation %>
+</div>
+<div class="field">
+  <%= f.submit 'submit' %><br />
+
+</div>
+
+<% end %>
+
