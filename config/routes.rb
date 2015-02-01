@@ -4,13 +4,16 @@ scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     resources :posts do
        resources :comments
     end
-    devise_for :users
-
+    devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+        # 're'
+      }
     root to: 'home#index'
     resources :home, only: :show
  end
-  
-  
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
