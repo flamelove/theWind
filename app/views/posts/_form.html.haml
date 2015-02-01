@@ -16,6 +16,11 @@
     = f.label :content
     %br
       = f.text_area :content, :class => "form-control"
+  .form-group
+    = f.label :images
+    = image_tag ( @post.images.url(:thumb)? @post.images.url(:thumb) : "")
+    = f.file_field :images
+    / = f.hidden_field :images_cache
   .actions
     = f.submit class: "btn btn-primary"
 :javascript
@@ -33,7 +38,6 @@
           wrapper: "li",
           errorLabelContainer: "#messageBox",
              },
-    }
+      }
     });
-  
   });

@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 
   # handle_asynchronously :call_a_class_method, :run_at => Proc.new { when_to_run }
 	def create
+    # byebug
     @post = Post.friendly.find(params[:post_id])
     @comment = @post.comment.create(comment_params)
     @comment.user_id = current_user.id #or whatever is you session name
@@ -15,7 +16,7 @@ class CommentsController < ApplicationController
         respond_to do |format|
          format.json { render json: @comment.as_json(include: [:user])}
         end
-        if @post.user!=current_user 
+        if @post.user!=current_user
           PostMail.delay.notication_email(@comment)
       end
       else
@@ -23,7 +24,7 @@ class CommentsController < ApplicationController
         flash.now[:danger] = "error"
       end
   end
- 
+
   private
     def comment_params
       params.require(:comment).permit(:content,:user_id, :post_id)

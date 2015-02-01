@@ -21,7 +21,8 @@
           %td= post.content.truncate(200, separator: ' ')
           %td= post.created_at
           %td= link_to t('Show'), post
-          %td= link_to t('Edit'), edit_post_path(post)
+          =if can? :edit, post
+            %td= link_to t('Edit'), edit_post_path(post)
           %td= link_to t('Destroy'), post, method: :delete, data: { confirm: 'Are you sure?' }
   = paginate @posts
   %br

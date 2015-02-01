@@ -2,12 +2,14 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
   before_action :authenticate_user!
+  # load_and_authorize_resource
   def index
     @posts = current_user.post.order('created_at DESC').page params[:page]
     respond_with(@posts)
   end
 
   def show
+    authorize! :read, @post
     respond_with(@post)
   end
 
@@ -42,6 +44,6 @@ class PostsController < ApplicationController
       @post = Post.friendly.find(params[:id])
     end
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content,:images,:images_cache)
     end
 end
