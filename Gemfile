@@ -24,7 +24,8 @@ source 'https://rubygems.org'
   gem 'jquery.fileupload-rails', '~> 1.10.0'
 
 
-	gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+	# Bootstrap
+  gem 'twitter-bootstrap-rails', '~> 3.2.0'
   gem 'rails_12factor', group: :production
   gem 'unicorn'
   gem 'delayed_job_active_record', '~> 4.1'
