@@ -7,7 +7,7 @@ common: &common
   password: 123123123
 
 development:
-  database: demo_development
+  database: thewind_development
   min_messages: warning
   <<: *common
 
@@ -15,12 +15,12 @@ production:
   adapter: postgresql
   encoding: utf8
   pool: 25
-  database: <%= ENV['TIFANY_DATABASE_NAME'] %>
-  username: <%= ENV['TIFANY_DATABASE_USERNAME'] %>
-  password: <%= ENV['TIFANY_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 test:
-  database: demo_test
+  database: thewind_test
   min_messages: warning
   <<: *common
 
