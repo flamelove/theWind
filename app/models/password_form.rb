@@ -26,7 +26,7 @@ class PasswordForm
   end
 
   def verify_original_password
-    user = User.find(:username params[:username])
+    user = User.find(username: params[:username])
     if user
       unless user.authenticate(original_password)
         errors.add :original_password, "is not correct"
